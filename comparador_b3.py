@@ -79,7 +79,7 @@ def buscar_indice(indice: str) -> pd.Series | None:
                 df["data"] = pd.to_datetime(df["data"])
                 df = df.set_index("data").sort_index()
 
-            # Tenta encontrar coluna numérica de valor
+    
             candidatas = [c for c in df.columns if c not in ("data", "ticker", "indice")]
             serie = None
             for col in candidatas:
@@ -183,7 +183,7 @@ def build_traces(series_dict: dict, benchmark_nome: str, paleta: list):
         ))
         dados_tab.append((nome, ret, vol, dd_max))
 
-    # Benchmark cinza tracejado
+   
     if bench is not None:
         norm_b = normalizar(bench)
         if norm_b is None or len(norm_b) == 0:
@@ -303,7 +303,7 @@ def gerar_grafico(dados_acoes: dict, dados_fiis: dict):
         )],
     )
 
-    # Eixos
+ 
     for row in [1, 2]:
         fig.update_xaxes(gridcolor=BG_PAINEL, linecolor=BORDA, row=row, col=1)
         fig.update_yaxes(gridcolor=BG_PAINEL, linecolor=BORDA, zeroline=False, row=row, col=1)
@@ -377,4 +377,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
